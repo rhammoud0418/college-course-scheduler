@@ -1,9 +1,11 @@
 import { Time } from './time';
 
 export class Lecture {
-    days: string[];
-    startTime: Time;
-    endTime: Time;
-    professor: string;
-    location: string;
+
+    constructor(public days: string[],
+                public startTime: Time,
+                public endTime: Time,
+                public professor?: string,
+                public location?: string) { }
+
 }

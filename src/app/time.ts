@@ -1,5 +1,7 @@
 export class Time {
-    hour: number;
-    minute: number;
-    period: string;
+
+    constructor(public hour: number,
+                public minute: number,
+                public period: string) { }
+                
 }

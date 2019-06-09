@@ -10,10 +10,13 @@ import { Time } from '../time';
 })
 export class CoursesComponent implements OnInit {
 
-  courses: Course[];
+  // Input field option arrays
   displayedColumns: string[] = ['name', 'lectures'];
+  dayOptions: string[] = ['M','T','W','Th','F'];
+  daysSelected: string[] = [];
 
-  
+  courses: Course[];
+  currentCourse: Course = new Course('', [new Lecture([], new Time(0,0,'am'), new Time(0,0,'am'))]);
 
   constructor() { }
 
@@ -27,4 +30,18 @@ export class CoursesComponent implements OnInit {
     var newCourse: Course = { name, lectures } as Course;
     this.courses.push(newCourse);
   }
-}
+
+  selectionChanged(item) {
+    console.log(this.daysSelected);
+    this.currentCourse.lectures[0].days = this.daysSelected;
+  }
+
+  professorChanged(item) {
+    console.log(item);
+    this.currentCourse.lectures[0].professor = item;
+  }
+
+  get diagnostic() {
+    return JSON.stringify(this.currentCourse);
+  }
+ }

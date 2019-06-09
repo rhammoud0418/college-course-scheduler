@@ -32,21 +32,18 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
+    Current course: {{diagnostic}}
     <div id="add-course-form-wrapper">
       <h1>Add Course: </h1>
       <mat-form-field>
-        <input matInput placeholder="Course Name">
+        <input matInput placeholder="Course Name" [(ngModel)]="currentCourse.name">
       </mat-form-field>
   
       <div id="lecture-form-wrapper">
         <h3>Lectures:</h3>
         <h5>Days</h5>
-        <mat-button-toggle-group multiple #group="matButtonToggleGroup">
-          <mat-button-toggle value="monday">M</mat-button-toggle>
-          <mat-button-toggle value="monday">T</mat-button-toggle>
-          <mat-button-toggle value="monday">W</mat-button-toggle>
-          <mat-button-toggle value="monday">Th</mat-button-toggle>
-          <mat-button-toggle value="monday">F</mat-button-toggle>
+        <mat-button-toggle-group multiple [(value)]="daysSelected" #group="matButtonToggleGroup">
+          <mat-button-toggle *ngFor="let day of dayOptions;" [value]="day" (change)="selectionChanged($event)">{{day}}</mat-button-toggle>
         </mat-button-toggle-group>
     
         <h5>Time</h5>
@@ -59,11 +56,11 @@
         </mat-form-field>
         <br/>
         <mat-form-field>
-            <input matInput placeholder="Professor(Optional)">
+            <input matInput placeholder="Professor (Optional)">
         </mat-form-field>
         <br/>
         <mat-form-field>
-          <input matInput placeholder="Location(Optional)">
+          <input matInput placeholder="Location (Optional)">
         </mat-form-field>
       </div>
 
