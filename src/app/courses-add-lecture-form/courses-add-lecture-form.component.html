@@ -1,0 +1,30 @@
+<div>
+    <div class="btn-group btn-group-toggle">
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="model.monday"> M
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="model.tuesday"> T
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="model.wednesday"> W
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="model.thursday"> Th
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="model.friday"> F
+        </label>
+    </div>
+    <br/>
+        <ngb-timepicker [(ngModel)]="startTime" [meridian]="true"></ngb-timepicker>
+        <ngb-timepicker [(ngModel)]="endTime" [meridian]="true"></ngb-timepicker>
+    <mat-form-field>
+        <input matInput placeholder="Location(Optional)" [(ngModel)]="location">
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+        <input matInput placeholder="Professor(Optional)" [(ngModel)]="professor">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onAddLecture();">Add Lecture</button>
+</div>

@@ -1,0 +1,24 @@
+<h3>Your Courses</h3>
+
+<table mat-table [dataSource]="coursesList" class="mat-elevation-z8">
+
+	<ng-container matColumnDef="name">
+		<th mat-header-cell *matHeaderCellDef> Course Name </th>
+		<td mat-cell *matCellDef="let course"> {{course.name}} </td>
+	</ng-container>
+
+	<ng-container matColumnDef="lectures">
+		<th mat-header-cell *matHeaderCellDef> Lectures </th>
+		<td mat-cell *matCellDef="let course"> 
+			<ul>
+				<li *ngFor="let lecture of course.lectures">
+					{{ lecture.formattedString }}
+				</li>
+			</ul>
+		</td>
+	</ng-container>
+
+	<tr mat-header-row *matHeaderRowDef="courseColumnsToDisplay"></tr>
+	<tr mat-row *matRowDef="let row; columns: courseColumnsToDisplay"></tr>
+
+</table>

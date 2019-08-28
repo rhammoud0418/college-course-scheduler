@@ -1,0 +1,10 @@
+h3 {
+    padding-top: 25px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.courses-add-course-form-container {
+    width: 500px;
+    margin: 0 auto;
+}

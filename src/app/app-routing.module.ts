@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CoursesComponent } from './courses/courses.component';
+
+import { CoursesInputComponent } from './courses-input/courses-input.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'courses', pathMatch: 'full' },
-  { path: 'courses', component: CoursesComponent }
+  { path: '', redirectTo: 'courses-input', pathMatch: 'full' },
+  { path: 'courses-input', component: CoursesInputComponent }
 ];
 
 @NgModule({

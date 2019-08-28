@@ -1,0 +1,21 @@
+<h3>Add Course</h3>
+
+<div class="courses-add-course-form-container">
+    <mat-form-field style="width:100%">
+        <input matInput placeholder="Enter the name of the course..." [(ngModel)]="courseName" [formControl]="courseNameFormControl" required>
+        <mat-error *ngIf="courseNameFormControl.invalid">{{ getCourseNameErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <br/>
+    <h5>Lecture Times</h5>
+    <ng-template #popContent><app-courses-add-lecture-form (addLecture)="onAddLecture($event)"></app-courses-add-lecture-form></ng-template>
+    <ng-template #popTitle>Add Lecture</ng-template>
+    <button mat-raised-button color="primary" [autoClose]="'outside'" [ngbPopover]="popContent" [popoverTitle]="popTitle">
+        Add lecture
+    </button>
+    <ul>
+        <li *ngFor="let lecture of lectures">
+            {{ lecture.formattedString }}
+        </li>
+    </ul>
+    <button mat-raised-button color="primary" (click)="onAddCourse();">Add Course</button>
+</div>
